@@ -13,3 +13,4 @@ export class CartPage {
     await this.checkoutBtn.click();
   }
 }
+//

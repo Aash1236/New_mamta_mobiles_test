@@ -2,8 +2,8 @@ name: Sanity Test Suite
 on:
     push:
         branches: [main, master]
-        pull_request:
-            branches: [main, master]
+    pull_request:
+        branches: [main, master]
     
 jobs:
     test:
