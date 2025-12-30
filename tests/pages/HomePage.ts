@@ -19,15 +19,18 @@ export class HomePage {
     async handleAdvertisement() {
         try{
             console.log('Waiting for advertisement popup...');
-            await this.popupCloseButton.waitFor({state: 'visible', timeout: 7000});
+            await this.popupCloseButton.waitFor({state: 'visible', timeout: 15000});
             await this.popupCloseButton.click();
+            await this.popupCloseButton.waitFor({ state: 'hidden' });
             console.log('Advertisement popup closed.');
         }catch (error){
             console.log('No advertisement popup found.');
         }
     }
     async goToLoginPage() {
+        await this.page.locator('.backdrop-blur-sm').waitFor({ state: 'detached', timeout: 5000 }).catch(() => {});
         await this.loginLink.click();
+
     }
     async selectFirstProduct() {
         await this.firstProduct.click();
