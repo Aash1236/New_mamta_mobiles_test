@@ -16,6 +16,15 @@ export class ProductPage {
   }
 
   async goToCart() {
-    await this.cartIcon.click();
+    // FIX: Check if "Checkout" button is ALREADY visible (meaning drawer is open)
+    const isCartOpen = await this.page.getByRole('button', { name: 'Checkout' }).isVisible();
+    
+    if (!isCartOpen) {
+        // Only click icon if the drawer is NOT open
+        console.log('Cart drawer closed, clicking icon...');
+        await this.cartIcon.click();
+    } else {
+        console.log('Cart drawer already open, skipping click.');
+    }
   }
 }
