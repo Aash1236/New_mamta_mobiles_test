@@ -1,0 +1,107 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+
+Running 9 tests using 4 workers
+
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Advertisement popup closed.
+Executing: TC_REG_011
+Advertisement popup closed.
+Advertisement popup closed.
+Executing: TC_REG_001
+Advertisement popup closed.
+Executing: TC_REG_010
+  ✓  3 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_011: Special Char/Script in Name (Security) (13.9s)
+Executing: TC_REG_009
+  ✓  2 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_001: Valid Registration (Standard) (14.3s)
+  ✓  4 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_010: Long Name (50+ Chars) (14.2s)
+  ✓  1 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_009: Leading/Trailing Spaces (Should Trim) (14.5s)
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Advertisement popup closed.
+Advertisement popup closed.
+Executing: TC_REG_003
+Executing: TC_REG_007
+  ✓  6 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_003: Email Missing @ (9.8s)
+  ✓  8 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_007: Empty Email (HTML5 Check) (9.7s)
+Advertisement popup closed.
+Executing: TC_REG_006
+Advertisement popup closed.
+Executing: TC_REG_002
+  ✘  7 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_006: Empty Name (10.5s)
+  ✓  5 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_002: Duplicate Email (12.4s)
+Waiting for advertisement popup...
+Advertisement popup closed.
+Executing: TC_REG_008
+  ✘  9 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_008: Empty Password (8.4s)
+
+
+  1) [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_006: Empty Name 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      43 |                 const emailField = registerPage.emailInput;
+      44 |                 const isInvalid = await emailField.evaluate((e: HTMLInputElement) => !e.checkValidity());
+    > 45 |                 expect(isInvalid).toBe(true);
+         |                                   ^
+      46 |             }else {
+      47 |                 //failure
+      48 |                 //await expect(registerPage.errorMessage.first()).toBeVisible();
+        at C:\Users\ashut\OneDrive\Desktop\Testing\Mamta_Mobiles\tests\register.spec.ts:45:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\register-Register-Regression-Suigte-TC-REG-006-Empty-Name-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\register-Register-Regression-Suigte-TC-REG-006-Empty-Name-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\register-Register-Regression-Suigte-TC-REG-006-Empty-Name-chromium\error-context.md
+
+  2) [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_008: Empty Password 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      43 |                 const emailField = registerPage.emailInput;
+      44 |                 const isInvalid = await emailField.evaluate((e: HTMLInputElement) => !e.checkValidity());
+    > 45 |                 expect(isInvalid).toBe(true);
+         |                                   ^
+      46 |             }else {
+      47 |                 //failure
+      48 |                 //await expect(registerPage.errorMessage.first()).toBeVisible();
+        at C:\Users\ashut\OneDrive\Desktop\Testing\Mamta_Mobiles\tests\register.spec.ts:45:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\register-Register-Regressi-071eb-e-TC-REG-008-Empty-Password-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\register-Register-Regressi-071eb-e-TC-REG-008-Empty-Password-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\register-Register-Regressi-071eb-e-TC-REG-008-Empty-Password-chromium\error-context.md
+
+  2 failed
+    [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_006: Empty Name 
+    [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_008: Empty Password 
+  7 passed (39.7s)

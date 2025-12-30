@@ -49,13 +49,14 @@ export const registerScenarios = [
   },
   {
     id: 'TC_REG_003',
-    description: 'Email Missing @ (HTML5 Validation)',
+    description: 'Email Missing @',
     name: 'Invalid User',
     email: 'invalidemail.com',
     password: 'Pass123',
     shouldPass: false,
     expectedError: '', // HTML5 check doesn't use a text div
-    isHtml5Check: true // Special flag for the test script
+    isHtml5Check: true,// Special flag for the test script
+    checkField: 'email'
   },
   {
     id: 'TC_REG_006',
@@ -64,16 +65,20 @@ export const registerScenarios = [
     email: 'valid@test.com',
     password: 'Pass123',
     shouldPass: false,
-    expectedError: 'Full Name is required'
+    expectedError: '',
+    isHtml5Check: true,
+    checkField: 'name'
   },
   {
     id: 'TC_REG_007',
-    description: 'Empty Email',
+    description: 'Empty Email (HTML5 Check)',
     name: 'Test User',
     email: '',
     password: 'Pass123',
     shouldPass: false,
-    expectedError: 'Email is required'
+    expectedError: '',
+    isHtml5Check: true,
+    checkField: 'email'
   },
   {
     id: 'TC_REG_008',
@@ -82,7 +87,9 @@ export const registerScenarios = [
     email: 'valid@test.com',
     password: '',
     shouldPass: false,
-    expectedError: 'Password is required'
+    expectedError: '',
+    isHtml5Check: true,
+    checkField: 'password'
   },
 
   // --- BUGGY SCENARIOS (Commented out) ---

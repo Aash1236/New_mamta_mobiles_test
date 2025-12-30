@@ -1,0 +1,118 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+
+Running 10 tests using 4 workers
+
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Advertisement popup closed.
+Executing: TC_REG_001
+Advertisement popup closed.
+Advertisement popup closed.
+Executing: TC_REG_010
+Executing: TC_REG_009
+  ✓   1 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_001: Valid Registration (Standard) (12.7s)
+Advertisement popup closed.
+Executing: TC_REG_011
+  ✓   2 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_010: Long Name (50+ Chars) (13.2s)
+  ✓   3 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_009: Leading/Trailing Spaces (Should Trim) (13.4s)
+  ✓   4 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_011: Special Char/Script in Name (Security) (13.3s)
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Waiting for advertisement popup...
+Advertisement popup closed.
+Executing: TC_REG_002
+  ✓   5 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_002: Duplicate Email (8.8s)
+Advertisement popup closed.
+Executing: TC_REG_006
+  ✓   7 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_006: Empty Name (9.7s)
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Advertisement popup closed.
+Executing: TC_REG_007
+Waiting for advertisement popup...
+  ✓   8 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_007: Empty Email (HTML5 Check) (10.8s)
+Waiting for advertisement popup...
+Advertisement popup closed.
+Executing: TC_REG_008
+  ✓   9 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_008: Empty Password (8.1s)
+Advertisement popup closed.
+Loggin in
+Selecting first product
+No advertisement popup found.
+Executing: TC_REG_003
+  ✓   6 [chromium] › tests\register.spec.ts:32:13 › Register Regression Suigte › TC_REG_003: Email Missing @ (18.6s)
+Adding product to cart
+Cart drawer already open, skipping click.
+Proceeding to checkout
+  ✘  10 [chromium] › tests\sanity.spec.ts:33:9 › Sanity Suite - New Mamta Mobiles › End-to-End Purchase Flow (30.3s)
+
+
+  1) [chromium] › tests\sanity.spec.ts:33:9 › Sanity Suite - New Mamta Mobiles › End-to-End Purchase Flow 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Checkout' })[22m
+    [2m    - locator resolved to <button class="w-full bg-[#006a55] text-white py-3.5 rounded-xl font-bold text-lg hover:bg-[#005544] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-lg shadow-[#006a55]/20">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    36 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at pages\CartPage.ts:13
+
+      11 |
+      12 |   async proceedToCheckout() {
+    > 13 |     await this.checkoutBtn.click();
+         |                            ^
+      14 |   }
+      15 | }
+      16 | //
+        at CartPage.proceedToCheckout (C:\Users\ashut\OneDrive\Desktop\Testing\Mamta_Mobiles\tests\pages\CartPage.ts:13:28)
+        at C:\Users\ashut\OneDrive\Desktop\Testing\Mamta_Mobiles\tests\sanity.spec.ts:50:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sanity-Sanity-Suite---New--d1bc4-es-End-to-End-Purchase-Flow-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\sanity-Sanity-Suite---New--d1bc4-es-End-to-End-Purchase-Flow-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sanity-Sanity-Suite---New--d1bc4-es-End-to-End-Purchase-Flow-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\sanity.spec.ts:33:9 › Sanity Suite - New Mamta Mobiles › End-to-End Purchase Flow 
+  9 passed (1.0m)

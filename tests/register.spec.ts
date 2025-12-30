@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 //load environment variables from .env file
 dotenv.config();
 
-test.describe('Register Regression Suigte', () => {
+test.describe('Register Regression Suite', () => {
     let homePage: HomePage;
     let loginPage: LoginPage;
     let registerPage: RegisterPage;
@@ -37,18 +37,29 @@ test.describe('Register Regression Suigte', () => {
 
             //assertions
             if (data.shouldPass) {
-                //success
-                await expect(page).not.toHaveURL(/.*signup/);
-            } else if (data.isHtml5Check) {
-                const emailField = registerPage.emailInput;
-                const isInvalid = await emailField.evaluate((e: HTMLInputElement) => !e.checkValidity());
-                expect(isInvalid).toBe(true);
-            }else {
-                //failure
-                //await expect(registerPage.errorMessage.first()).toBeVisible();
-                //await expect(registerPage.errorMessage.first()).toContainText(data.expectedError);
-                await expect(page.getByText(data.expectedError)).toBeVisible({ timeout: 10000 });
-            }
+        await expect(page).not.toHaveURL(/.*signup/);
+      
+      } else if (data.isHtml5Check) {
+        // FIX: Dynamically select the field based on data.checkField
+        let fieldToValidate;
+        
+        if (data.checkField === 'name') {
+            fieldToValidate = registerPage.fullNameInput;
+        } else if (data.checkField === 'password') {
+            fieldToValidate = registerPage.passwordInput;
+        } else {
+            // Default to email
+            
+            fieldToValidate = registerPage.emailInput;
+        }
+
+        // Check validity of the SELECTED field
+        const isInvalid = await fieldToValidate.evaluate((e: HTMLInputElement) => !e.checkValidity());
+        expect(isInvalid, `Expected ${data.checkField} to be invalid`).toBe(true);
+
+      } else {
+        await expect(page.getByText(data.expectedError).first()).toBeVisible({ timeout: 10000 });
+      }
         });
     }
 });
