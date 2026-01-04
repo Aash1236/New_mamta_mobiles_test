@@ -17,6 +17,8 @@ export class CartPage {
   // User Menu Locators
   readonly userProfileIcon: Locator;
   readonly logoutBtn: Locator;
+  readonly headerCartIcon: Locator;
+
 
   constructor(page: Page) {
     this.page = page;
@@ -47,6 +49,9 @@ export class CartPage {
     this.userProfileIcon = page.locator("body > div:nth-child(3) > div:nth-child(2) > div:nth-child(3) > svg:nth-child(2)");
     //this.logoutBtn = page.getByRole('button', { name: 'Log Out' });
     this.logoutBtn = page.getByText(/Log\s?out/i).first();
+
+    //cart icon locator
+    this.headerCartIcon = page.locator("//div[@class='relative cursor-pointer']//*[name()='svg']").first();
   }
 
   // --- ACTIONS ---
@@ -83,19 +88,25 @@ export class CartPage {
   }
 
   async logout() {
-    console.log('Reloading page to close drawers...');
+    console.log('Starting Logout Flow...');
+    
+    // 1. Open Profile Menu
     await this.page.reload(); 
     await this.page.waitForLoadState('domcontentloaded');
-    
-    console.log('Clicking Profile Icon...');
     await this.userProfileIcon.waitFor({ state: 'visible' });
+    await this.userProfileIcon.evaluate((btn) => btn.dispatchEvent(new MouseEvent('click', { bubbles: true })));
     
-    // FIX: Force click to ensure menu opens
-    await this.userProfileIcon.click({ force: true });
-    await this.page.waitForTimeout(500); // Small animation wait
-    
-    console.log('Clicking Logout...');
+    // 2. Click Logout
     await this.logoutBtn.waitFor({ state: 'visible' });
-    await this.logoutBtn.click();
+    try {
+        await this.logoutBtn.click({ timeout: 2000 });
+    } catch {
+        await this.logoutBtn.evaluate((btn) => (btn as HTMLElement).click());
+    }
+    
+    // 3. FIX: Wait for redirect to Homepage ("/")
+    // We wait for the URL to basically match the base domain (no 'login' or 'profile' in path)
+    await this.page.waitForURL(url => !url.pathname.includes('/profile'), { timeout: 15000 });
+    console.log('Logout successful, returned to Home Page.');
   }
 }

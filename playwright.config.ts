@@ -26,9 +26,24 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  timeout: 60 * 1000,
+  
+  expect: {
+    timeout: 10000 // Expect timeout can stay at 10s or move to 15s
+  },
   reporter: [
-    ['html'],
-    ['list']
+    //['html'],
+    ['list'],
+    ['monocart-reporter', {  
+      name: "Mamta Mobiles Automation Report",
+      outputFile: './test-results/report.html', // Where the file goes
+      
+      // Optional: Add custom columns or metrics
+      columns: [
+        (row: any) => row.duration,
+        (row: any) => row.status
+      ]
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
