@@ -19,7 +19,9 @@ export class LoginPage {
         await this.emailInput.fill(email);
         await this.passwordInput.fill(pass);
         await this.submitButton.click();
-        await this.page.waitForLoadState('networkidle');
+        //await this.page.waitForLoadState('networkidle');
+        await this.page.waitForURL((url) => !url.href.includes('login'), { timeout: 15000 });
+        console.log('Login successful, navigation complete.');
     }
     //Signup navigation method
     async goToSignUp() {
