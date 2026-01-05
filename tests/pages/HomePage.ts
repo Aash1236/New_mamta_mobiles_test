@@ -35,4 +35,21 @@ export class HomePage {
     async selectFirstProduct() {
         await this.firstProduct.click();
     }
+    
+    async searchProduct(productName: string) {
+    const searchIcon = this.page.locator('button:has(svg.lucide-search), svg.lucide-search').first();
+    await searchIcon.click();
+
+    const searchInput = this.page.getByPlaceholder(/Search/i);
+    await searchInput.waitFor({ state: 'visible' });
+
+    await searchInput.fill(productName);
+    await searchInput.press('Enter');
+    
+    // Wait for either results OR the "No results" message
+    await Promise.race([
+        this.page.locator('.product-card, h3').first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {}),
+        this.page.getByText('No products found').waitFor({ state: 'visible', timeout: 5000 }).catch(() => {})
+    ]);
+  }
 }
